@@ -67,7 +67,7 @@ Get-ChildItem Env: | Where-Object -Property Name -like -Value 'sonar.*' | ForEac
     $propertyName = $_.Name
     $propertyValue = $_.Value
     log("Setting $propertyName to $propertyValue")
-    $configContents = $configContents -ireplace "^#?$propertyName=.*", "$propertyName=$propertyValue"
+    $configContents = $configContents + "$propertyName=$propertyValue"
 }
 
 $port = $env:HTTP_PLATFORM_PORT
